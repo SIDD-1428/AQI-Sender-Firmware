@@ -5,21 +5,22 @@
 #include "config/build.h"
 
 #include "utils/log.h"
-#include "utils/timer.h"
+#include "core/stateMachine.h"
 
-Timer sensorTimer(5000);
+StateMachine stateMachine;
 
 void setup()
 {
     Log::begin();
     Log::info("System", "Boot Complete");
-    sensorTimer.start();
+    stateMachine.begin();
+    delay(1000);
+    stateMachine.transitionTo(SystemState::SELF_TEST);
+    delay(1000);
+    stateMachine.transitionTo(SystemState::WARMUP);
+    delay(1000);
+    stateMachine.transitionTo(SystemState::NORMAL);
 }
 
 void loop()
-{
-    if(sensorTimer.expired()){
-        Log::info("Timer","5 seconds Passed");
-        sensorTimer.reset();
-    }
-}
+{}
