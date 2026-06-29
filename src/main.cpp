@@ -1,71 +1,70 @@
 #include <Arduino.h>
 
 #include "config/config.h"
-#include "config/constants.h"
-#include "config/build.h"
-
 #include "utils/log.h"
-#include "core/scheduler.h"
+#include "models/environmentalData.h"
 
-Scheduler scheduler;
-
-//--------------------------------------------------
-// Tasks
-//--------------------------------------------------
-
-void sensorTask()
-{
-    Log::info("Task", "Reading Sensors");
-}
-
-void loraTask()
-{
-    Log::info("Task", "Sending LoRa Packet");
-}
-
-void heartbeatTask()
-{
-    Log::info("Task", "Heartbeat");
-}
-
-//--------------------------------------------------
-// Setup
-//--------------------------------------------------
+EnvironmentalData data;
 
 void setup()
 {
     Log::begin();
 
-    Log::info("System", "Boot Complete");
+    Log::info("System", "Testing EnvironmentalData");
 
-    scheduler.begin();
+    //----------------------------------------
+    // Metadata
+    //----------------------------------------
 
-    scheduler.addTask(
-        "Sensors",
-        5000,
-        sensorTask
-    );
+    data.nodeID = Config::NODE_ID;
+    data.sequenceNumber = 1;
+    data.uptime = millis();
 
-    scheduler.addTask(
-        "LoRa",
-        10000,
-        loraTask
-    );
+    //----------------------------------------
+    // Climate
+    //----------------------------------------
 
-    scheduler.addTask(
-        "Heartbeat",
-        1000,
-        heartbeatTask
-    );
+    data.temperature = 29.4f;
+    data.humidity = 71.8f;
+    data.pressure = 1008.7f;
 
-    Log::info("System", "Scheduler Started");
+    //----------------------------------------
+    // Particulates
+    //----------------------------------------
+
+    data.pm1_0 = 8.0f;
+    data.pm2_5 = 13.0f;
+    data.pm10 = 22.0f;
+
+    //----------------------------------------
+    // Gases
+    //----------------------------------------
+
+    data.ozone = 0.021f;
+    data.sulfurDioxide = 0.004f;
+    data.nitrogenDioxide = 0.011f;
+    data.carbonMonoxide = 0.52f;
+    data.ammonia = 0.09f;
+
+    //----------------------------------------
+    // Status
+    //----------------------------------------
+
+    data.hasClimateData = true;
+    data.hasParticulateData = true;
+    data.hasGasData = true;
+
+    data.validated = true;
+
+    data.lastUpdated = millis();
+
+    //----------------------------------------
+    // Print
+    //----------------------------------------
+
+    data.print();
 }
-
-//--------------------------------------------------
-// Loop
-//--------------------------------------------------
 
 void loop()
 {
-    scheduler.update();
 }

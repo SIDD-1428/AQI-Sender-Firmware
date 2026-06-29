@@ -8,16 +8,16 @@ class Log
 public:
     static void begin();
 
-    static void info(const String& module,
+    static void info(const String& tag,
                      const String& message);
 
-    static void warning(const String& module,
+    static void warning(const String& tag,
                         const String& message);
 
-    static void error(const String& module,
+    static void error(const String& tag,
                       const String& message);
 
-    static void debug(const String& module,
+    static void debug(const String& tag,
                       const String& message);
 
     static void state(const String& from,

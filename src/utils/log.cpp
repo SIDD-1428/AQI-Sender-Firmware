@@ -38,40 +38,40 @@ void Log::begin()
     info("System", "Logger Initialized");
 }
 
-void Log::info(const String& module,
+void Log::info(const String& tag,
                const String& message)
 {
     Serial.print("[INFO][");
-    Serial.print(module);
+    Serial.print(tag);
     Serial.print("] ");
     Serial.println(message);
 }
 
-void Log::warning(const String& module,
+void Log::warning(const String& tag,
                   const String& message)
 {
     Serial.print("[WARNING][");
-    Serial.print(module);
+    Serial.print(tag);
     Serial.print("] ");
     Serial.println(message);
 }
 
-void Log::error(const String& module,
+void Log::error(const String& tag,
                 const String& message)
 {
     Serial.print("[ERROR][");
-    Serial.print(module);
+    Serial.print(tag);
     Serial.print("] ");
     Serial.println(message);
 }
 
-void Log::debug(const String& module,
+void Log::debug(const String& tag,
                 const String& message)
 {
     if (Config::DEBUG_MODE)
     {
         Serial.print("[DEBUG][");
-        Serial.print(module);
+        Serial.print(tag);
         Serial.print("] ");
         Serial.println(message);
     }
