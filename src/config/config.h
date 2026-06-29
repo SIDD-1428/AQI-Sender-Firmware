@@ -16,6 +16,11 @@ namespace Config
     //i2c
     constexpr uint8_t BME280_I2C_ADDRESS = 0x76;
     constexpr uint8_t ADS1115_I2C_ADDRESS = 0x48;
+    
+    //uart
+    constexpr uint8_t PMS7003_RX_PIN=35;
+    constexpr uint8_t PMS7003_TX_PIN=36;
+    constexpr uint8_t PMS7003_BAUD_RATE=9600;
 
     // Debug
     constexpr bool DEBUG_MODE = true;
