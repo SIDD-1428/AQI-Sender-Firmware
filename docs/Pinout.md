@@ -1,0 +1,2 @@
+SDA → GPIO 33
+SCL → GPIO 34

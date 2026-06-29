@@ -13,8 +13,17 @@ namespace Config
     // Device
     constexpr const char* NODE_ID = "AQI001";
 
+    //i2c
+    constexpr uint8_t BME280_I2C_ADDRESS = 0x76;
+    constexpr uint8_t ADS1115_I2C_ADDRESS = 0x48;
+
     // Debug
     constexpr bool DEBUG_MODE = true;
+
+    //timing
+    constexpr uint32_t SENSOR_INTERVAL = 5000;
+    constexpr uint32_t LORA_INTERVAL = 10000;
+    constexpr uint32_t HEARTBEAT_INTERVAL = 1000;
 }
 
 #endif
