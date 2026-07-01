@@ -31,6 +31,10 @@ namespace Config
     constexpr uint8_t PMS7003_TX_PIN = 36;
     constexpr uint32_t PMS7003_BAUD_RATE = 9600;
 
+    //Communication
+    constexpr uint8_t PROTOCOL_VERSION=1;
+    constexpr uint16_t MAX_PACKET_SIZE=256;
+    constexpr uint16_t LORA_MAX_PAYLOAD=255;
     // Timing
     constexpr uint32_t SENSOR_INTERVAL    = 5000;
     constexpr uint32_t LORA_INTERVAL      = 10000;
