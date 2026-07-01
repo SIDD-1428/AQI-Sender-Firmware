@@ -24,6 +24,9 @@ String PacketBuilder::build(const EnvironmentalData& data){
     return m_packet;
 }
 
+void PacketBuilder::clear(){
+    m_packet ="";
+}
 void PacketBuilder::appendMetadata(const EnvironmentalData& data){
 
     m_packet += "VERSION = ";
@@ -48,7 +51,7 @@ void PacketBuilder::appendClimate(const EnvironmentalData& data){
     m_packet += String(data.humidity, 2);
     m_packet += ";";
 
-    m_packet += "Pressure =";
+    m_packet += "Pressure = ";
     m_packet += String(data.pressure, 2);
     m_packet += ";";
 }
@@ -85,7 +88,7 @@ void PacketBuilder :: appendGases(const EnvironmentalData& data){
     m_packet += String(data.ammonia, 2);
     m_packet+= ";";
 
-    m_packet += "SO2";
+    m_packet += "SO2 = ";
     m_packet += String(data.sulfurDioxide, 2);
     m_packet += ";";
 }

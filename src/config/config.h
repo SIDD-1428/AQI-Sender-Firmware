@@ -50,10 +50,10 @@ namespace Config
     constexpr uint32_t LORA_RX_TIMEOUT=3000;
     
     // LRa Pins
-    constexpr uint8_t LORA_NSS_PIN =10;
-    constexpr uint8_t LORA_DIO1_PIN=2;
-    constexpr uint8_t LORA_RST_PIN = 3;
-    constexpr uint8_t LORA_BUSY_PIN = 9;
+    constexpr uint8_t LORA_NSS_PIN =8;
+    constexpr uint8_t LORA_DIO1_PIN=14;
+    constexpr uint8_t LORA_RST_PIN = 12;
+    constexpr uint8_t LORA_BUSY_PIN = 13;
     // Timing
     constexpr uint32_t SENSOR_INTERVAL    = 5000;
     constexpr uint32_t LORA_INTERVAL      = 10000;

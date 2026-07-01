@@ -1,4 +1,5 @@
 #include "loraManager.h"
+#include <SPI.h>
 
 #include "../config/config.h"
 #include "../utils/log.h"
@@ -19,7 +20,9 @@ LoRaManager::LoRaManager()
 bool LoRaManager::begin()
 {
     Log::info("LoRa", "Initializing...");
-
+    SPI.begin();    
+    Log::info("LoRa", "SPI initialized");
+    
     int state = m_radio.begin(
         Config::LORA_FREQUENCY,
         Config::LORA_BANDWIDTH,
