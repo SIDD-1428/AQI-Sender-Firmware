@@ -35,6 +35,25 @@ namespace Config
     constexpr uint8_t PROTOCOL_VERSION=1;
     constexpr uint16_t MAX_PACKET_SIZE=256;
     constexpr uint16_t LORA_MAX_PAYLOAD=255;
+
+    //LoRa
+
+    constexpr float LORA_FREQUENCY = 868.0;
+    constexpr int8_t LORA_TX_POWER=14;
+    constexpr uint8_t LORA_BANDWIDTH= 125.0;
+    constexpr uint8_t LORA_SPREADING_FACTOR= 9;
+    constexpr uint8_t LORA_CODING_RATE= 7;
+    constexpr uint8_t LORA_PREAMBLE_LENGTH=8;
+    constexpr int8_t LORA_SYNC_WORD = 0x12;
+    constexpr bool LORA_ENABLE_CRC = true;
+    constexpr uint32_t LORA_TX_TIMEOUT=3000;
+    constexpr uint32_t LORA_RX_TIMEOUT=3000;
+    
+    // LRa Pins
+    constexpr uint8_t LORA_NSS_PIN =10;
+    constexpr uint8_t LORA_DIO1_PIN=2;
+    constexpr uint8_t LORA_RST_PIN = 3;
+    constexpr uint8_t LORA_BUSY_PIN = 9;
     // Timing
     constexpr uint32_t SENSOR_INTERVAL    = 5000;
     constexpr uint32_t LORA_INTERVAL      = 10000;
