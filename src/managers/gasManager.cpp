@@ -41,7 +41,7 @@ void GasManager::readOzone(EnvironmentalData& data){
 }
 
 void GasManager::readNitrogenDioxide(EnvironmentalData& data){
-    data.nitrogenDioxide=m_ads.readVoltage(1);
+    data.nitrogenDioxide=m_ads.readVoltage(3);
 }
 
 void GasManager::readCarbonMonoxide(EnvironmentalData& data){
@@ -49,7 +49,7 @@ void GasManager::readCarbonMonoxide(EnvironmentalData& data){
 }
 
 void GasManager::readAmmonia(EnvironmentalData& data){
-    data.ammonia=m_ads.readVoltage(3);
+    data.ammonia=m_ads.readVoltage(1);
 }
 
 void GasManager::readSulfurDioxide(EnvironmentalData& data){
